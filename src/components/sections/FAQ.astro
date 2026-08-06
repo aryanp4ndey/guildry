@@ -1,0 +1,66 @@
+---
+import SectionTitle from "../ui/SectionTitle.astro";
+import Section from "./Section.astro";
+
+const faqs = [
+  {
+    index: 1,
+    title: "How long does it take?",
+    description: "Typically, a standard business website takes 2-4 weeks from discovery to launch. E-commerce or highly custom projects may take 6-8 weeks."
+  },
+  {
+    index: 2,
+    title: "How much does it cost?",
+    description: "Our projects start at ₹49,999. The final cost depends on the scope of the project, features required, and the level of customization."
+  },
+  {
+    index: 3,
+    title: "Can I edit the website later?",
+    description: "Yes, we build our websites with easy-to-use content management systems (CMS) so you can update text, images, and content without needing to code."
+  },
+  {
+    index: 4,
+    title: "Is hosting included?",
+    description: "We provide hosting assistance and setup. The actual hosting fees are paid directly to the provider (like Vercel or AWS) to ensure you have full ownership."
+  },
+  {
+    index: 5,
+    title: "Do you redesign websites?",
+    description: "Absolutely! We can take your existing website and completely overhaul the design, performance, and user experience while preserving your content."
+  },
+  {
+    index: 6,
+    title: "Can you build custom features?",
+    description: "Yes, our development team can build custom integrations, booking systems, portals, and complex functionalities tailored to your business."
+  },
+  {
+    index: 7,
+    title: "Can I connect WhatsApp?",
+    description: "Yes, we can seamlessly integrate WhatsApp chat or booking buttons directly into your website so customers can reach you instantly."
+  }
+];
+
+import AccordionItem from "../ui/AccordionItem.astro";
+---
+
+<Section id="faq">
+  <div class="mt-[140px]">
+    <SectionTitle
+      sectionTitle="FAQ"
+      description="Common questions about working with us and our premium web design process."
+    />
+    <div class="mt-10">
+      {
+        faqs.map((item) => {
+          return (
+            <AccordionItem
+              index={item.index}
+              title={item.title}
+              description={item.description}
+            />
+          );
+        })
+      }
+    </div>
+  </div>
+</Section>

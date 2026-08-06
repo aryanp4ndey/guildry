@@ -1,0 +1,98 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Grotesk";
+  src: url("/fonts/grotesk/SpaceGrotesk-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Grotesk";
+  src: url("/fonts/grotesk/SpaceGrotesk-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --accent: #0066FF;
+  --black: #000000;
+  --dark: #191a23;
+  --gray: #f3f3f3;
+  --white: #ffffff;
+}
+
+body {
+  font-family: "Grotesk", sans-serif;
+  background-color: #ffffff;
+  color: #191a23;
+}
+
+.text-accent {
+  color: var(--accent);
+}
+
+.bg-accent {
+  background-color: var(--accent);
+}
+
+.border-accent {
+  border-color: var(--accent);
+}
+
+.greenhead, .accenthead {
+  background-color: var(--accent);
+  color: #ffffff;
+  border-radius: 7px;
+  padding: 2px 7px;
+  display: inline-block;
+}
+
+.whitehead {
+  background-color: #ffffff;
+  color: #000000;
+  border-radius: 7px;
+  padding: 2px 7px;
+  display: inline-block;
+}
+
+.blackhead {
+  background-color: #000000;
+  color: #ffffff;
+  border-radius: 7px;
+  padding: 2px 7px;
+  display: inline-block;
+}
+
+.btn-primary {
+  background-color: #191a23;
+  color: #ffffff;
+  border-radius: 12px;
+  padding: 18px 35px;
+  transition: all 0.2s ease;
+  display: inline-block;
+}
+.btn-primary:hover {
+  background-color: var(--accent);
+  transform: scale(1.03);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: #000000;
+  border-radius: 12px;
+  padding: 18px 35px;
+  border: 1px solid #000000;
+  transition: all 0.2s ease;
+  display: inline-block;
+}
+.btn-secondary:hover {
+  background-color: #000000;
+  color: #ffffff;
+  border-color: var(--accent);
+  transform: scale(1.03);
+}

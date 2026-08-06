@@ -1,0 +1,87 @@
+---
+import SectionTitle from "../ui/SectionTitle.astro";
+import Section from "./Section.astro";
+
+const plans = [
+  {
+    name: "Starter",
+    price: "₹49,999",
+    description: "Perfect for small local businesses starting out.",
+    features: [
+      "Up to 5 Pages",
+      "Mobile Responsive",
+      "Basic SEO Setup",
+      "Contact Form",
+      "1 Month Support"
+    ],
+    highlight: false,
+    cta: "Get Started"
+  },
+  {
+    name: "Business",
+    price: "₹99,999",
+    description: "Ideal for growing businesses needing a strong presence.",
+    features: [
+      "Up to 10 Pages",
+      "Premium Custom Design",
+      "Advanced SEO & Analytics",
+      "Booking/WhatsApp Integration",
+      "CMS for Easy Updates",
+      "3 Months Support"
+    ],
+    highlight: true,
+    cta: "Choose Business"
+  },
+  {
+    name: "Premium",
+    price: "₹1,49,999",
+    description: "For established brands needing complex features.",
+    features: [
+      "Unlimited Pages",
+      "E-Commerce / Custom Portal",
+      "High-Performance Optimization",
+      "Custom Animations",
+      "Priority 24/7 Support",
+      "1 Year Maintenance"
+    ],
+    highlight: false,
+    cta: "Get Premium"
+  }
+];
+---
+
+<Section id="pricing">
+  <div class="mt-[140px]">
+    <SectionTitle
+      sectionTitle="Transparent Pricing"
+      description="Simple, clear pricing tailored to your business needs. No hidden fees."
+    />
+    
+    <div class="grid lg:grid-cols-3 gap-8 mt-10">
+      {plans.map((plan) => (
+        <div class={`flex flex-col p-8 rounded-3xl border transition-all duration-300 hover:-translate-y-2 ${plan.highlight ? 'bg-dark text-white border-dark shadow-2xl scale-105' : 'bg-white text-black border-zinc-200'}`}>
+          
+          <h3 class="text-2xl font-bold mb-2">{plan.name}</h3>
+          <p class={`text-sm mb-6 ${plan.highlight ? 'text-zinc-300' : 'text-zinc-500'}`}>{plan.description}</p>
+          
+          <div class="text-4xl font-bold mb-8">{plan.price}</div>
+          
+          <div class="flex-grow">
+            <ul class="space-y-4 mb-8">
+              {plan.features.map(feature => (
+                <li class="flex items-center gap-3">
+                  <svg class={`w-5 h-5 ${plan.highlight ? 'text-accent' : 'text-black'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                  <span>{feature}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          
+          <a href="#contact" class={`w-full py-4 text-center rounded-xl font-medium transition-colors ${plan.highlight ? 'bg-accent text-white hover:bg-white hover:text-black' : 'bg-zinc-100 text-black hover:bg-black hover:text-white'}`}>
+            {plan.cta}
+          </a>
+        </div>
+      ))}
+    </div>
+  </div>
+</Section>

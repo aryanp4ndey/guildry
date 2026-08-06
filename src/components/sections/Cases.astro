@@ -1,0 +1,113 @@
+---
+import { Image } from "astro:assets";
+import Card from "../ui/Card.astro";
+import Section from "./Section.astro";
+import SectionTitle from "../ui/SectionTitle.astro";
+import larrow from "../../assets/icon3.svg";
+
+const featuredProjects = [
+  {
+    title: "Compute Platform",
+    category: "SaaS & Cloud",
+    tech: "Next.js + Tailwind",
+    description: "Cloud platform interface engineered for seamless developer workflow and computing infrastructure.",
+    url: "https://compute-the-platform-to-build-beige-sigma.vercel.app/",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop"
+  },
+  {
+    title: "Pulse Platform",
+    category: "Analytics Suite",
+    tech: "React + Tailwind",
+    description: "Modern real-time metrics dashboard designed for fast data visualization and SaaS tracking.",
+    url: "https://pulse-template-by-aryan.lovable.app/",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop"
+  },
+  {
+    title: "Noir Motion Studio",
+    category: "Creative Agency",
+    tech: "Next.js + Framer Motion",
+    description: "High-end agency showcase with smooth interactive transitions and dark mode aesthetic.",
+    url: "https://noirmotion-portfolio.vercel.app/",
+    image: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=800&auto=format&fit=crop"
+  },
+  {
+    title: "Aryan Dental Clinic",
+    category: "Dental Clinic",
+    tech: "React + Booking",
+    description: "Medical healthcare website with online appointment scheduling and service guides.",
+    url: "https://aryandentalclinic.netlify.app/",
+    image: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=800&auto=format&fit=crop"
+  },
+  {
+    title: "Aryan Salon & Spa",
+    category: "Salon & Beauty",
+    tech: "Astro + WhatsApp",
+    description: "Luxury beauty salon portal featuring service menus and direct booking integration.",
+    url: "https://aryansalon.vercel.app/",
+    image: "https://images.unsplash.com/photo-1560750588-73207b1ef5b8?q=80&w=800&auto=format&fit=crop"
+  },
+  {
+    title: "Baseline Club",
+    category: "Sports & Fitness",
+    tech: "React + Memberships",
+    description: "Athletic club and community website with schedule management and member onboarding.",
+    url: "https://baseline-club.netlify.app/",
+    image: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=800&auto=format&fit=crop"
+  }
+];
+---
+
+<Section id="portfolio">
+  <SectionTitle
+    sectionTitle="Live Client Work"
+    description="Explore our recent production builds. Click any project to experience the live website in real-time."
+  />
+  
+  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-10">
+    {
+      featuredProjects.map((project) => (
+        <div class="group bg-white border border-zinc-200 rounded-3xl overflow-hidden hover:shadow-xl hover:border-accent/40 transition-all duration-300 flex flex-col justify-between">
+          <div>
+            <div class="relative h-48 overflow-hidden bg-zinc-100 border-b border-zinc-100">
+              <img 
+                src={project.image} 
+                alt={project.title} 
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <div class="absolute top-3 left-3 flex gap-2">
+                <span class="px-3 py-1 bg-black/80 backdrop-blur-sm text-white text-xs font-medium rounded-full">
+                  {project.category}
+                </span>
+              </div>
+            </div>
+            
+            <div class="p-6 space-y-3">
+              <span class="text-xs font-semibold text-accent uppercase tracking-wider">{project.tech}</span>
+              <h3 class="text-xl font-bold text-zinc-900 group-hover:text-accent transition-colors">{project.title}</h3>
+              <p class="text-sm text-zinc-600 line-clamp-2">{project.description}</p>
+            </div>
+          </div>
+
+          <div class="p-6 pt-0 mt-auto flex items-center justify-between">
+            <a 
+              href={project.url} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              class="inline-flex items-center gap-2 text-sm font-semibold text-accent hover:text-zinc-900 transition-colors"
+            >
+              <span>Visit Live Website</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+            </a>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+
+  <div class="mt-12 text-center">
+    <a href="/portfolio" class="inline-flex items-center gap-2 px-8 py-4 bg-zinc-900 text-white font-medium rounded-2xl hover:bg-accent transition-colors">
+      <span>View All 10 Live Builds</span>
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+    </a>
+  </div>
+</Section>

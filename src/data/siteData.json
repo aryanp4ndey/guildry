@@ -1,0 +1,8 @@
+{
+  "title": "Guildry",
+  "description": "Guildry is a premium website design and engineering agency for growing businesses.",
+  "image": {
+    "src": "https://guildry.vercel.app/cover.png",
+    "alt": "Guildry Agency"
+  }
+}

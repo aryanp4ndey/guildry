@@ -1,0 +1,48 @@
+---
+import AccordionItem from "./AccordionItem.astro";
+
+const content = [
+{
+  index: 1,
+  title: "Discovery Call",
+  description: "We start by understanding your business, your goals, and your target audience. We'll discuss your vision and gather requirements to ensure we build a website that delivers results."
+},
+{
+  index: 2,
+  title: "Wireframe",
+  description: "Before diving into design, we create a structural layout of your website. This ensures the user journey is intuitive and all necessary information is logically organized."
+},
+{
+  index: 3,
+  title: "Design",
+  description: "Our designers craft a premium, visually stunning interface tailored to your brand. We focus on modern aesthetics, typography, and beautiful micro-interactions."
+},
+{
+  index: 4,
+  title: "Development",
+  description: "Our developers bring the design to life using modern tech stacks. We ensure lightning-fast performance, responsive layouts, and clean code."
+},
+{
+  index: 5,
+  title: "Launch",
+  description: "After rigorous testing across devices and browsers, we deploy your new website. We handle all technical aspects to ensure a smooth transition."
+},
+{
+  index: 6,
+  title: "Support",
+  description: "Our relationship doesn't end at launch. We provide ongoing maintenance, updates, and support to ensure your website continues to perform optimally."
+}
+];
+---
+
+{
+  content.map((item) => {
+    return (
+      <AccordionItem
+        index={item.index}
+        title={item.title}
+        description={item.description}
+      />
+    );
+  })
+}
