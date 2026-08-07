@@ -2,7 +2,7 @@
 
 import SectionTitle from "../ui/SectionTitle";
 import Card from "../ui/Card";
-import { Crown, ShieldCheck, Compass, Palette, Code2 } from "lucide-react";
+import { Crown, ShieldCheck, Compass, Palette, Code2, TrendingUp } from "lucide-react";
 
 const team: Array<{
   initials: string;
@@ -24,13 +24,22 @@ const team: Array<{
     pic: "/team/aryan.jpg",
   },
   {
-    initials: "AP",
-    name: "Ansh Pratap",
+    initials: "AG",
+    name: "Ansh Gautam",
     role: "Head of Operations and Finance",
     description:
       "Specializes in financial strategy, operational scaling, and high-performance agency management.",
     link: "https://linkedin.com",
     icon: ShieldCheck,
+  },
+  {
+    initials: "VA",
+    name: "Vaidik Agarwal",
+    role: "Head of Sales",
+    description:
+      "Drives business growth, client acquisitions, and strategic sales partnerships to expand operations.",
+    link: "https://linkedin.com",
+    icon: TrendingUp,
   },
   {
     initials: "AS",
