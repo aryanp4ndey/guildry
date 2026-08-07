@@ -9,8 +9,16 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL
+  ? process.env.NEXT_PUBLIC_SITE_URL
+  : process.env.VERCEL_URL
+  ? `https://${process.env.VERCEL_URL}`
+  : "https://guildrystudio.vercel.app";
+
+const ogImageUrl = `${siteUrl}/og-image.png`;
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://guildry.com"),
+  metadataBase: new URL(siteUrl),
   title: {
     default: "Guildry. — Premium Websites. Real Results.",
     template: "%s | Guildry.",
@@ -25,7 +33,7 @@ export const metadata: Metadata = {
     "Web Engineering Agency",
     "Bespoke Digital Agency",
   ],
-  authors: [{ name: "Guildry", url: "https://guildry.com" }],
+  authors: [{ name: "Guildry", url: siteUrl }],
   creator: "Guildry",
   publisher: "Guildry",
   icons: {
@@ -36,11 +44,11 @@ export const metadata: Metadata = {
     title: "Guildry. — Premium Websites. Real Results.",
     description:
       "We design and build bespoke, ultra-fast websites for ambitious local businesses, startups, and growing brands that want to stand out and convert visitors into customers.",
-    url: "https://guildry.com",
+    url: siteUrl,
     siteName: "Guildry.",
     images: [
       {
-        url: "/og-image.png",
+        url: ogImageUrl,
         width: 1200,
         height: 630,
         alt: "Guildry — Premium Websites. Real Results.",
@@ -55,7 +63,7 @@ export const metadata: Metadata = {
     title: "Guildry. — Premium Websites. Real Results.",
     description:
       "We design and build bespoke, ultra-fast websites for ambitious local businesses, startups, and growing brands that want to stand out and convert visitors into customers.",
-    images: ["/og-image.png"],
+    images: [ogImageUrl],
   },
   robots: {
     index: true,
@@ -70,6 +78,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
+      <head>
+        <meta property="og:image" content={ogImageUrl} />
+        <meta property="og:image:secure_url" content={ogImageUrl} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:type" content="image/png" />
+        <meta name="twitter:image" content={ogImageUrl} />
+      </head>
       <body className="min-h-screen flex flex-col justify-between antialiased">
         <Navbar />
         <main>{children}</main>

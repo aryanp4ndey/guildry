@@ -79,33 +79,35 @@ export default function TeamSection() {
                     {/* Professional Avatar Frame */}
                     <div className="relative w-20 h-20 sm:w-24 sm:h-24 shrink-0 flex items-center justify-center">
                       {/* Positivus Star Watermark */}
-                      <svg viewBox="0 0 100 100" className="absolute inset-0 w-full h-full text-accent opacity-25">
+                      <svg viewBox="0 0 100 100" className="absolute -inset-1 w-[110%] h-[110%] text-accent opacity-20 pointer-events-none">
                         <path d="M50 0 C50 30 70 50 100 50 C70 50 50 70 50 100 C50 70 30 50 0 50 C30 50 50 30 50 0 Z" fill="currentColor" />
                       </svg>
-                      {/* Profile Photo or Monogram Box */}
+                      {/* Profile Photo Container */}
                       {member.pic ? (
-                        <img
-                          src={member.pic}
-                          alt={member.name}
-                          className="w-16 h-16 sm:w-18 sm:h-18 rounded-2xl object-cover shadow-lg border border-zinc-800 relative z-10"
-                          onError={(e) => {
-                            // If image is missing, hide image and show initials fallback
-                            (e.currentTarget as HTMLElement).style.display = "none";
-                            const fallback = e.currentTarget.nextElementSibling as HTMLElement;
-                            if (fallback) fallback.style.display = "flex";
-                          }}
-                        />
+                        <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden border-2 border-zinc-900 shadow-md relative z-10 aspect-square shrink-0 bg-zinc-900">
+                          <img
+                            src={member.pic}
+                            alt={member.name}
+                            className="w-full h-full object-cover object-center aspect-square"
+                            onError={(e) => {
+                              (e.currentTarget.parentElement as HTMLElement).style.display = "none";
+                              const fallback = e.currentTarget.parentElement?.nextElementSibling as HTMLElement;
+                              if (fallback) fallback.style.display = "flex";
+                            }}
+                          />
+                        </div>
                       ) : null}
+                      {/* Monogram Box Fallback */}
                       <div
-                        className="w-16 h-16 sm:w-18 sm:h-18 rounded-2xl bg-zinc-900 text-white items-center justify-center shadow-lg border border-zinc-800 relative z-10"
+                        className="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-zinc-900 text-white items-center justify-center shadow-md border-2 border-zinc-900 relative z-10 aspect-square shrink-0"
                         style={{ display: member.pic ? "none" : "flex" }}
                       >
-                        <span className="font-inter font-bold text-xl sm:text-2xl text-white tracking-widest">
+                        <span className="font-inter font-bold text-2xl text-white tracking-widest">
                           {member.initials}
                         </span>
                       </div>
                       {/* Corner Role Badge Icon */}
-                      <div className="absolute bottom-0 right-0 z-20 w-7 h-7 rounded-lg bg-accent text-white flex items-center justify-center shadow-md border-2 border-white">
+                      <div className="absolute -bottom-1 -right-1 z-20 w-7 h-7 rounded-full bg-accent text-white flex items-center justify-center shadow-md border-2 border-white">
                         <Icon className="w-3.5 h-3.5" />
                       </div>
                     </div>
