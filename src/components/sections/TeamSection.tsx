@@ -1,48 +1,63 @@
+"use client";
+
 import SectionTitle from "../ui/SectionTitle";
 import Card from "../ui/Card";
+import { Crown, ShieldCheck, Compass, Palette, Code2 } from "lucide-react";
 
-const team = [
+const team: Array<{
+  initials: string;
+  name: string;
+  role: string;
+  description: string;
+  link: string;
+  icon: any;
+  pic?: string;
+}> = [
   {
-    pic: "/team/t1.png",
-    name: "John Smith",
+    initials: "AP",
+    name: "Aryan Pandey",
     role: "CEO and Founder",
-    description: "10+ years of experience in digital marketing. Expertise in SEO, PPC, and content strategy",
-    link: "https://linkedin.com",
+    description:
+      "Passionate tech leader driving strategy, product vision, and digital innovation to transform brands online.",
+    link: "https://www.linkedin.com/in/aryanp4ndey",
+    icon: Crown,
+    pic: "/team/aryan.jpg",
   },
   {
-    pic: "/team/t2.png",
-    name: "Jane Doe",
-    role: "Director of Operations",
-    description: "7+ years of experience in project management and team leadership. Strong organizational and communication skills",
+    initials: "AP",
+    name: "Ansh Pratap",
+    role: "Head of Operations and Finance",
+    description:
+      "Specializes in financial strategy, operational scaling, and high-performance agency management.",
     link: "https://linkedin.com",
+    icon: ShieldCheck,
   },
   {
-    pic: "/team/t3.png",
-    name: "Michael Brown",
-    role: "Senior SEO Specialist",
-    description: "5+ years of experience in SEO and content creation. Proficient in keyword research and on-page optimization",
+    initials: "AS",
+    name: "Atman Singh",
+    role: "Head of Strategy and Management",
+    description:
+      "Focuses on growth operations, strategic partnerships, and delivering end-to-end client success.",
     link: "https://linkedin.com",
+    icon: Compass,
   },
   {
-    pic: "/team/t4.png",
-    name: "Emily Johnson",
-    role: "PPC Manager",
-    description: "3+ years of experience in paid search advertising. Skilled in campaign management and performance analysis",
+    initials: "AK",
+    name: "Akshay Kumar",
+    role: "Full Stack Engineer",
+    description:
+      "Expert in modern web frameworks, frontend performance, and seamless database architecture.",
     link: "https://linkedin.com",
+    icon: Code2,
   },
   {
-    pic: "/team/t5.png",
-    name: "Brian Williams",
-    role: "Social Media Specialist",
-    description: "4+ years of experience in social media marketing. Proficient in content creation, metrics analysis, and building engagement",
+    initials: "OS",
+    name: "Om Semwal",
+    role: "Lead UI/UX Designer",
+    description:
+      "Crafts intuitive user experiences, modern visual design systems, and sleek interactive interfaces.",
     link: "https://linkedin.com",
-  },
-  {
-    pic: "/team/t6.png",
-    name: "Sarah Kim",
-    role: "Content Creator",
-    description: "2+ years of experience in writing and editing. Skilled in creating compelling, SEO-optimized content for various industries",
-    link: "https://linkedin.com",
+    icon: Palette,
   },
 ];
 
@@ -54,26 +69,62 @@ export default function TeamSection() {
         description="Meet the skilled and experienced team behind our successful digital marketing and web strategies."
       />
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10">
-        {team.map((member, index) => (
-          <Card key={index} isUnderline={true}>
-            <div className="p-8 sm:p-[40px] bg-white h-full flex flex-col justify-between">
-              <div>
-                <div className="flex flex-col sm:flex-row relative items-start">
-                  <img src={member.pic} alt={member.name} className="w-24 h-24 rounded-full object-cover shrink-0" />
-                  <div className="flex flex-col justify-end sm:ml-5 mt-4 sm:mt-0">
-                    <h3 className="text-lg font-medium text-black">{member.name}</h3>
-                    <p className="text-sm font-normal text-zinc-500">{member.role}</p>
+        {team.map((member, index) => {
+          const Icon = member.icon;
+          return (
+            <Card key={index} isUnderline={true}>
+              <div className="p-8 sm:p-[40px] bg-white h-full flex flex-col justify-between">
+                <div>
+                  <div className="flex flex-col sm:flex-row relative items-start">
+                    {/* Professional Avatar Frame */}
+                    <div className="relative w-20 h-20 sm:w-24 sm:h-24 shrink-0 flex items-center justify-center">
+                      {/* Positivus Star Watermark */}
+                      <svg viewBox="0 0 100 100" className="absolute inset-0 w-full h-full text-accent opacity-25">
+                        <path d="M50 0 C50 30 70 50 100 50 C70 50 50 70 50 100 C50 70 30 50 0 50 C30 50 50 30 50 0 Z" fill="currentColor" />
+                      </svg>
+                      {/* Profile Photo or Monogram Box */}
+                      {member.pic ? (
+                        <img
+                          src={member.pic}
+                          alt={member.name}
+                          className="w-16 h-16 sm:w-18 sm:h-18 rounded-2xl object-cover shadow-lg border border-zinc-800 relative z-10"
+                          onError={(e) => {
+                            // If image is missing, hide image and show initials fallback
+                            (e.currentTarget as HTMLElement).style.display = "none";
+                            const fallback = e.currentTarget.nextElementSibling as HTMLElement;
+                            if (fallback) fallback.style.display = "flex";
+                          }}
+                        />
+                      ) : null}
+                      <div
+                        className="w-16 h-16 sm:w-18 sm:h-18 rounded-2xl bg-zinc-900 text-white items-center justify-center shadow-lg border border-zinc-800 relative z-10"
+                        style={{ display: member.pic ? "none" : "flex" }}
+                      >
+                        <span className="font-inter font-bold text-xl sm:text-2xl text-white tracking-widest">
+                          {member.initials}
+                        </span>
+                      </div>
+                      {/* Corner Role Badge Icon */}
+                      <div className="absolute bottom-0 right-0 z-20 w-7 h-7 rounded-lg bg-accent text-white flex items-center justify-center shadow-md border-2 border-white">
+                        <Icon className="w-3.5 h-3.5" />
+                      </div>
+                    </div>
+
+                    <div className="flex flex-col justify-end sm:ml-5 mt-4 sm:mt-0">
+                      <h3 className="text-lg font-medium text-black">{member.name}</h3>
+                      <p className="text-sm font-normal text-zinc-500">{member.role}</p>
+                    </div>
+                    <a href={member.link} target="_blank" rel="noopener noreferrer" className="absolute right-0 top-0">
+                      <img src="/pics/profile-in.svg" alt="LinkedIn" className="w-8 h-8" />
+                    </a>
                   </div>
-                  <a href={member.link} target="_blank" rel="noopener noreferrer" className="absolute right-0 top-0">
-                    <img src="/pics/profile-in.svg" alt="LinkedIn" className="w-8 h-8" />
-                  </a>
+                  <div className="w-full h-[1px] bg-zinc-200 my-6"></div>
+                  <p className="text-sm text-zinc-700 leading-relaxed">{member.description}</p>
                 </div>
-                <div className="w-full h-[1px] bg-zinc-200 my-6"></div>
-                <p className="text-sm text-zinc-700 leading-relaxed">{member.description}</p>
               </div>
-            </div>
-          </Card>
-        ))}
+            </Card>
+          );
+        })}
       </div>
       <div className="flex justify-end mt-10">
         <button className="btn-primary">See all team</button>

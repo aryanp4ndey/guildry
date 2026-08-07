@@ -2,6 +2,9 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { Inter } from "next/font/google";
+
+const inter = Inter({ subsets: ["latin"], weight: ["700", "800"] });
 
 const menuitems = [
   { href: "/", label: "Home" },
@@ -22,8 +25,8 @@ export default function Navbar() {
       <nav className="w-full top-0 left-0 z-50 fixed bg-white/80 backdrop-blur-md border-b border-zinc-100">
         <header className="flex flex-col lg:flex-row justify-between items-center my-5 px-6 md:px-32">
           <div className="flex w-full lg:w-auto items-center justify-between">
-            <Link href="/" className="flex items-center space-x-3">
-              <img src="/Logo.svg" className="h-8" alt="Guildry Logo" />
+            <Link href="/" className={`${inter.className} font-inter text-3xl font-bold tracking-tight text-black flex items-center`}>
+              Guildry<span className="text-accent">.</span>
             </Link>
             <div className="block lg:hidden">
               <button

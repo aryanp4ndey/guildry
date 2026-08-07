@@ -1,4 +1,7 @@
 import Link from "next/link";
+import { Inter } from "next/font/google";
+
+const inter = Inter({ subsets: ["latin"], weight: ["700", "800"] });
 
 const links = [
   { name: "Services", href: "/services" },
@@ -15,8 +18,8 @@ export default function Footer() {
         <div className="px-[15px] bg-dark text-gray py-[55px] lg:px-[60px] sm:rounded-t-[45px]">
           <div>
             <div className="flex flex-col lg:flex-row gap-7 items-center justify-between">
-              <Link href="/" className="text-3xl font-bold text-white tracking-tighter">
-                Guildry.
+              <Link href="/" className={`${inter.className} font-inter text-3xl font-bold text-white tracking-tight`}>
+                Guildry<span className="text-accent">.</span>
               </Link>
               <ul className="flex flex-col sm:flex-row gap-5">
                 {links.map((link) => (
