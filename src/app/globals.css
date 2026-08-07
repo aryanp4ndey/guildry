@@ -8,6 +8,56 @@
   font-family: 'Inter', sans-serif;
 }
 
+/* Custom Brand Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f4f4f5;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #0066FF;
+  border-radius: 9999px;
+  border: 2px solid #f4f4f5;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #004ecc;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #0066FF #f4f4f5;
+}
+
+/* Lenis Smooth Scroll & Layout Fit */
+html, body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
 @font-face {
   font-family: "Grotesk";
   src: url("/fonts/grotesk/SpaceGrotesk-Regular.woff") format("woff");

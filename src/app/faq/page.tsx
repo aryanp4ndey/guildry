@@ -135,7 +135,7 @@ export default function FAQPage() {
             <p className="text-zinc-400 text-sm">Speak directly with a lead developer on WhatsApp — zero sales pressure.</p>
           </div>
           <a 
-            href="https://wa.me/919876543210" 
+            href="https://wa.me/917839748337" 
             target="_blank" 
             rel="noopener noreferrer"
             className="px-6 py-4 bg-accent text-white font-bold rounded-2xl hover:bg-white hover:text-black transition-all shrink-0"

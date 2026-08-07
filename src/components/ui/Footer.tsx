@@ -41,9 +41,9 @@ export default function Footer() {
               <div className="flex text-center lg:text-start flex-col w-full lg:w-[30%]">
                 <h3 className="mb-5 text-center md:text-left text-2xl text-accent font-medium">Contact us</h3>
                 <div className="flex flex-col justify-between gap-4 text-gray text-sm">
-                  <span>Email: hello@guildry.com</span>
-                  <span>Phone: +91 98765 43210</span>
-                  <span className="lg:w-3/4">Address: Gomti Nagar, Lucknow, UP, India</span>
+                  <span>Email: <a href="mailto:aryanp4ndey@gmail.com" className="hover:text-accent transition-colors">aryanp4ndey@gmail.com</a></span>
+                  <span>Phone: <a href="tel:+917839748337" className="hover:text-accent transition-colors">+91 7839748337</a></span>
+                  <span className="lg:w-3/4">Address: Jankipuram, Lucknow, Uttar Pradesh, India</span>
                 </div>
               </div>
               <div className="flex-grow my-10 lg:my-0 lg:ml-12">

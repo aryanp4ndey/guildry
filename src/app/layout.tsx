@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import Navbar from "@/components/ui/Navbar";
 import Footer from "@/components/ui/Footer";
+import SmoothScroll from "@/components/ui/SmoothScroll";
 import "./globals.css";
 
 export const viewport: Viewport = {
@@ -77,7 +78,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className="scroll-smooth overflow-x-hidden">
       <head>
         <meta property="og:image" content={ogImageUrl} />
         <meta property="og:image:secure_url" content={ogImageUrl} />
@@ -86,7 +87,8 @@ export default function RootLayout({
         <meta property="og:image:type" content="image/png" />
         <meta name="twitter:image" content={ogImageUrl} />
       </head>
-      <body className="min-h-screen flex flex-col justify-between antialiased">
+      <body className="min-h-screen flex flex-col justify-between antialiased overflow-x-hidden w-full max-w-full">
+        <SmoothScroll />
         <Navbar />
         <main>{children}</main>
         <Footer />

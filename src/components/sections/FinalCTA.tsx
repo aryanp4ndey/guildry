@@ -14,13 +14,13 @@ export default function FinalCTA() {
           
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
             <a 
-              href="mailto:hello@guildry.com" 
+              href="mailto:aryanp4ndey@gmail.com" 
               className="px-8 py-4 bg-accent text-white font-medium rounded-2xl hover:bg-white hover:text-black transition-all w-full sm:w-auto text-lg"
             >
               Book Free Consultation
             </a>
             <a 
-              href="https://wa.me/919876543210" 
+              href="https://wa.me/917839748337" 
               target="_blank" 
               rel="noopener noreferrer"
               className="px-8 py-4 bg-transparent border border-zinc-700 text-white font-medium rounded-2xl hover:bg-white hover:text-black transition-all w-full sm:w-auto text-lg"
